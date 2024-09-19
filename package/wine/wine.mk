@@ -14,11 +14,15 @@ WINE_SELINUX_MODULES = wine
 WINE_DEPENDENCIES = host-bison host-flex host-wine
 HOST_WINE_DEPENDENCIES = host-bison host-flex
 
+WINE_AUTORECONF = YES
+
 # Wine needs its own directory structure and tools for cross compiling
 WINE_CONF_OPTS = \
+	--enable-archs=i386 \
 	--with-wine-tools=../host-wine-$(WINE_VERSION) \
 	--disable-tests \
 	--disable-win64 \
+	--without-wine64 \
 	--without-capi \
 	--without-coreaudio \
 	--without-gettext \
@@ -265,8 +269,12 @@ endef
 
 # We are focused on the cross compiling tools, disable everything else
 HOST_WINE_CONF_OPTS += \
+	--enable-archs=i386 \
 	--disable-tests \
 	--disable-win16 \
+	--disable-win64 \
+	--without-wine64 \
+	--without-wine-tools \
 	--without-alsa \
 	--without-capi \
 	--without-coreaudio \

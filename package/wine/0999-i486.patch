@@ -1,0 +1,20 @@
+--- old/configure.ac	2023-01-24 16:06:25.000000000 +0100
++++ new/configure.ac	2023-11-10 13:30:54.261654977 +0100
+@@ -888,7 +888,7 @@
+         if test -z "$llvm_target"
+         then
+             case $wine_arch in
+-            i386) llvm_target=i686-windows ;;
++            i386) llvm_target=i386-windows ;;
+             arm)  llvm_target=armv7-windows ;;
+             *)    llvm_target=$wine_arch-windows ;;
+             esac
+@@ -1853,7 +1853,7 @@
+ #endif]])],
+           [wine_cv_64bit_compare_swap="none needed"],
+           [case $host_cpu in
+-            *i[[3456]]86*) wine_cv_64bit_compare_swap="-march=i586" ;;
++            *i[[3456]]86*) wine_cv_64bit_compare_swap="-march=i486" ;;
+             *arm*)         wine_cv_64bit_compare_swap="-march=armv7-a" ;;
+             *)             wine_cv_64bit_compare_swap="unknown" ;;
+            esac
