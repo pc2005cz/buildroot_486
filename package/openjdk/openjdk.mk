@@ -85,7 +85,6 @@ OPENJDK_CONF_OPTS = \
 	--disable-full-docs \
 	--disable-manpages \
 	--disable-warnings-as-errors \
-	--enable-headless-only \
 	--enable-openjdk-only \
 	--enable-unlimited-crypto \
 	--openjdk-target=$(GNU_TARGET_NAME) \
