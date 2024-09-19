@@ -139,11 +139,13 @@ endif
 QEMU_OPTS += --target-list="$(QEMU_TARGET_LIST)"
 endif
 
-ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+#ifeq ($(BR2_TOOLCHAIN_USES_UCLIBC),y)
+#QEMU_OPTS += --disable-vhost-user
+#else
+#QEMU_OPTS += --enable-vhost-user
+#endif
+
 QEMU_OPTS += --disable-vhost-user
-else
-QEMU_OPTS += --enable-vhost-user
-endif
 
 ifeq ($(BR2_PACKAGE_QEMU_SLIRP),y)
 QEMU_OPTS += --enable-slirp
@@ -206,12 +208,14 @@ else
 QEMU_OPTS += --disable-libssh
 endif
 
-ifeq ($(BR2_PACKAGE_LIBUSB),y)
-QEMU_OPTS += --enable-libusb
-QEMU_DEPENDENCIES += libusb
-else
+#ifeq ($(BR2_PACKAGE_LIBUSB),y)
+#QEMU_OPTS += --enable-libusb
+#QEMU_DEPENDENCIES += libusb
+#else
+#QEMU_OPTS += --disable-libusb
+#endif
+
 QEMU_OPTS += --disable-libusb
-endif
 
 ifeq ($(BR2_PACKAGE_LIBVNCSERVER),y)
 QEMU_OPTS += \
@@ -234,12 +238,14 @@ else
 QEMU_OPTS += --disable-vnc
 endif
 
-ifeq ($(BR2_PACKAGE_NETTLE),y)
-QEMU_OPTS += --enable-nettle
-QEMU_DEPENDENCIES += nettle
-else
+#ifeq ($(BR2_PACKAGE_NETTLE),y)
+#QEMU_OPTS += --enable-nettle
+#QEMU_DEPENDENCIES += nettle
+#else
+#QEMU_OPTS += --disable-nettle
+#endif
+
 QEMU_OPTS += --disable-nettle
-endif
 
 ifeq ($(BR2_PACKAGE_NUMACTL),y)
 QEMU_OPTS += --enable-numa
@@ -272,6 +278,9 @@ endif
 ifeq ($(BR2_STATIC_LIBS),y)
 QEMU_OPTS += --static
 endif
+
+#pc2005
+#QEMU_OPTS += --static
 
 ifeq ($(BR2_PACKAGE_QEMU_BLOBS),y)
 QEMU_OPTS += --enable-install-blobs
@@ -331,9 +340,9 @@ define QEMU_CONFIGURE_CMDS
 			--disable-virtfs \
 			--disable-whpx \
 			--disable-xen \
-			--enable-attr \
-			--enable-kvm \
-			--enable-vhost-net \
+			--disable-attr \
+			--disable-kvm \
+			--disable-vhost-net \
 			--disable-download \
 			--disable-hexagon-idef-parser \
 			$(QEMU_OPTS)

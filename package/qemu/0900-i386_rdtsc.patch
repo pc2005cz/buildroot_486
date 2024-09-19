@@ -1,0 +1,13 @@
+--- qemu-8.1.1_original/include/qemu/timer.h	2023-09-21 22:20:52.000000000 +0200
++++ qemu-8.1.1/include/qemu/timer.h	2023-11-19 08:25:42.788086818 +0100
+@@ -872,7 +872,9 @@
+     return retval;
+ }
+ 
+-#elif defined(__i386__)
++//#elif defined(__i386__)
++//pc2005
++#elif 0
+ 
+ static inline int64_t cpu_get_host_ticks(void)
+ {
