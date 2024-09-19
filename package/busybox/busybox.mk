@@ -290,12 +290,12 @@ ifeq ($(BR2_PACKAGE_SYSKLOGD)$(BR2_PACKAGE_RSYSLOG)$(BR2_PACKAGE_SYSLOG_NG),)
 define BUSYBOX_INSTALL_LOGGING_SCRIPT
 	if grep -q CONFIG_SYSLOGD=y $(@D)/.config; \
 	then \
-		$(INSTALL) -m 0755 -D package/busybox/S01syslogd \
+		$(INSTALL) -m 0644 -D package/busybox/S01syslogd \
 			$(TARGET_DIR)/etc/init.d/S01syslogd; \
 	fi; \
 	if grep -q CONFIG_KLOGD=y $(@D)/.config; \
 	then \
-		$(INSTALL) -m 0755 -D package/busybox/S02klogd \
+		$(INSTALL) -m 0644 -D package/busybox/S02klogd \
 			$(TARGET_DIR)/etc/init.d/S02klogd; \
 	fi
 endef

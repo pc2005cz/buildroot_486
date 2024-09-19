@@ -9,6 +9,18 @@ define IFUPDOWN_SCRIPTS_PREAMBLE
 		> $(TARGET_DIR)/etc/network/interfaces
 endef
 
+define IFUPDOWN_SCRIPTS_486
+	( \
+		echo ; \
+		echo "auto enp0s11"; \
+		echo "iface enp0s11 inet static"; \
+		echo "  address 10.0.0.96"; \
+		echo "  netmask 255.255.254.0"; \
+		echo "  gateway 10.0.0.80"; \
+		echo "  dns-server 10.0.0.80"; \
+	) >> $(TARGET_DIR)/etc/network/interfaces
+endef
+
 define IFUPDOWN_SCRIPTS_LOCALHOST
 	( \
 		echo ; \
@@ -51,10 +63,11 @@ define IFUPDOWN_SCRIPTS_INSTALL_INIT_OPENRC
 endef
 
 define IFUPDOWN_SCRIPTS_INSTALL_INIT_SYSV
-	$(INSTALL) -D -m 0755 $(IFUPDOWN_SCRIPTS_PKGDIR)/S40network \
+	$(INSTALL) -D -m 0644 $(IFUPDOWN_SCRIPTS_PKGDIR)/S40network \
 		$(TARGET_DIR)/etc/init.d/S40network
 	$(IFUPDOWN_SCRIPTS_PREAMBLE)
 	$(IFUPDOWN_SCRIPTS_LOCALHOST)
+	$(IFUPDOWN_SCRIPTS_486)
 	$(IFUPDOWN_SCRIPTS_DHCP)
 endef
 

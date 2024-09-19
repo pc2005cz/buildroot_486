@@ -189,7 +189,7 @@ endif
 # they would be responsible for starting the server.
 ifeq ($(BR2_PACKAGE_NODM)$(BR2_PACKAGE_XAPP_XDM),)
 define XSERVER_XORG_SERVER_INSTALL_INIT_SYSV
-	$(INSTALL) -D -m 755 package/x11r7/xserver_xorg-server/S40xorg \
+	$(INSTALL) -D -m 644 package/x11r7/xserver_xorg-server/S40xorg \
 		$(TARGET_DIR)/etc/init.d/S40xorg
 endef
 endif
