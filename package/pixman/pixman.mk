@@ -22,6 +22,10 @@ PIXMAN_AUTORECONF = YES
 PIXMAN_CONF_OPTS = \
 	--disable-gtk \
 	--disable-loongson-mmi \
+	--disable-arm-iwmmxt2 \
+	--disable-mmx \
+	--disable-sse2 \
+	--disable-ssse3 \
 	--disable-arm-iwmmxt
 
 # Affects only tests, and we don't build tests (see

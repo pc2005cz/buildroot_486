@@ -38,6 +38,10 @@ else
 WEBP_CONF_OPTS += --disable-libwebpmux
 endif
 
+ifeq ($(BR2_x86_i486),y)
+WEBP_CONF_OPTS += --disable-sse4.1 --disable-sse2
+endif
+
 ifeq ($(BR2_PACKAGE_GIFLIB),y)
 WEBP_DEPENDENCIES += giflib
 WEBP_CONF_OPTS += --enable-gif

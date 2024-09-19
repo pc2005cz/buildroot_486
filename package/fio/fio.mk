@@ -32,6 +32,8 @@ ifeq ($(BR2_PACKAGE_ZLIB),y)
 FIO_DEPENDENCIES += zlib
 endif
 
+TARGET_CFLAGS += $(subst $\",,$(BR2_TARGET_OPTIMIZATION))
+
 define FIO_CONFIGURE_CMDS
 	(cd $(@D); $(TARGET_MAKE_ENV) ./configure $(FIO_OPTS))
 endef

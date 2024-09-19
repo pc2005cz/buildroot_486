@@ -136,6 +136,7 @@ define BOOST_CONFIGURE_CMDS
 	cd $(@D) && ./bootstrap.sh $(BOOST_FLAGS)
 	echo "using gcc : `$(TARGET_CC) -dumpversion` : $(TARGET_CXX) : <cxxflags>\"$(BOOST_TARGET_CXXFLAGS)\" <linkflags>\"$(TARGET_LDFLAGS)\" ;" > $(@D)/user-config.jam
 	sed -i "s/: -O.* ;/: $(TARGET_OPTIMIZATION) ;/" $(@D)/tools/build/src/tools/gcc.jam
+	sed -i "s/toolset.flags gcc OPTIONS <architecture>x86\/<address-model>32\/<instruction-set> : -march=i686 ;/toolset.flags gcc OPTIONS <architecture>x86\/<address-model>32\/<instruction-set> : $(TARGET_OPTIMIZATION) ;/" $(@D)/tools/build/src/tools/gcc.jam
 endef
 
 define BOOST_BUILD_CMDS

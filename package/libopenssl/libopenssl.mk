@@ -69,7 +69,9 @@ define LIBOPENSSL_CONFIGURE_CMDS
 		$(TARGET_CONFIGURE_ARGS) \
 		$(TARGET_CONFIGURE_OPTS) \
 		 CFLAGS="$(LIBOPENSSL_CFLAGS)" \
+		 PROCESSOR="$(if $(BR2_x86_i486),386)" \
 		./Configure \
+			$(if $(BR2_x86_i486),386 no-sse2 no-hw no-asm) \
 			$(LIBOPENSSL_TARGET_ARCH) \
 			--prefix=/usr \
 			--openssldir=/etc/ssl \

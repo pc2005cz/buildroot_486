@@ -13,4 +13,7 @@ PRELINK_CROSS_LICENSE_FILES = COPYING
 PRELINK_CROSS_AUTORECONF = YES
 HOST_PRELINK_CROSS_DEPENDENCIES = host-elfutils host-libiberty
 
+PRELINK_CROSS_CONF_ENV += CFLAGS="$(TARGET_CFLAGS) -Wno-incompatible-pointer-types"
+
+
 $(eval $(host-autotools-package))
