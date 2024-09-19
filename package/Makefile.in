@@ -265,7 +265,7 @@ export PERL=$(shell which perl)
 # host-intltool needs libxml-parser-perl, which Buildroot installs in
 # $(HOST_DIR)/lib/perl, so we must make sure that the system perl
 # finds this perl module by exporting the proper value for PERL5LIB.
-export PERL5LIB=$(HOST_DIR)/lib/perl
+export PERL5LIB=$(HOST_DIR)/lib64/perl5
 
 TARGET_MAKE_ENV = PATH=$(BR_PATH)
 

@@ -8,6 +8,16 @@ config BR2_PACKAGE_PERL
 
 	  http://www.perl.org/
 
+config BR2_PACKAGE_HOST_PERL
+	bool "host_perl"
+	depends on BR2_USE_MMU # fork()
+	help
+	  Larry Wall's Practical Extraction and Report Language
+	  An interpreted scripting language, known among some as
+	  "Unix's Swiss Army Chainsaw".
+
+	  http://www.perl.org/
+
 if BR2_PACKAGE_PERL
 
 config BR2_PACKAGE_PERL_MODULES
