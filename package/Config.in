@@ -306,6 +306,7 @@ menu "Games"
 	source "package/supertux/Config.in"
 	source "package/supertuxkart/Config.in"
 	source "package/xorcurses/Config.in"
+	source "package/openttd/Config.in"
 endmenu
 
 menu "Graphic libraries and applications (graphic/text)"
