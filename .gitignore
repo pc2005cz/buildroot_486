@@ -1,5 +1,6 @@
 /output
 /dl
+/.buildroot-ccache
 /.auto.deps
 /.config.cmd
 /.config.old
